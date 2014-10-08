@@ -10,16 +10,21 @@ namespace CarTraderService.Controllers
 {
     public class AdvertController : ApiController
     {
+        private static int nextAdId;
         private static List<Advert> adverts = StartingAds();
 
         private static List<Advert> StartingAds()
         {
-            return new List<Advert>
+            var ads = new List<Advert>
             {
                 new Advert { Id = 1, Make = "Ford", Model = "Fiesta", AskingPrice = 2095, ContactNumber = "01225 456123", Description = "A lovely drive, honest." },
                 new Advert { Id = 2, Make = "Mini", Model = "Cooper", AskingPrice = 5000, ContactNumber = "07713715462", Description = "Horrible. Stay away!" },
                 new Advert { Id = 3, Make = "Alan", Model = "Horse", AskingPrice = 10, ContactNumber = "07716829674", Description = "Simply a bargain" }
             };
+
+            nextAdId = ads.Count + 1;
+
+            return ads;
         }
 
         public IEnumerable<Advert> Get()
@@ -30,6 +35,13 @@ namespace CarTraderService.Controllers
         public Advert Get(int id)
         {
             return adverts.FirstOrDefault(ad => ad.Id == id);
+        }
+
+        public void Post([FromBody]Advert ad)
+        {
+            nextAdId++;
+            ad.Id = nextAdId;
+            adverts.Add(ad);
         }
     }
 }
