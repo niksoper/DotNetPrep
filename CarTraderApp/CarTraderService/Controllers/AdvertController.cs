@@ -32,28 +32,51 @@ namespace CarTraderService.Controllers
             return adverts;
         }
 
-        public Advert Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return adverts.FirstOrDefault(ad => ad.Id == id);
+            var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
+
+            return (targetAd == null)
+                ? this.Request.CreateErrorResponse(HttpStatusCode.NotFound, string.Format("No advert found with id: {0}.", id))
+                : this.Request.CreateResponse(HttpStatusCode.OK, targetAd);
         }
 
-        public void Post([FromBody]Advert ad)
+        public HttpResponseMessage Post([FromBody]Advert ad)
         {
+            if (ad == null)
+            {
+                return this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No advert data was submitted.");
+            }
+
             nextAdId++;
             ad.Id = nextAdId;
             adverts.Add(ad);
+
+            var response = this.Request.CreateResponse(HttpStatusCode.Created);
+            response.Headers.Location = new Uri(this.Request.RequestUri + ad.Id.ToString());
+
+            return response;
         }
 
-        public void Put(int id, [FromBody]Advert updatedAd)
+        public HttpResponseMessage Put(int id, [FromBody]Advert updatedAd)
         {
             var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
+
+            if (targetAd == null)
+            {
+                return this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, string.Format("No advert found with id: {0}.", id));
+            }
+
             targetAd.CopyDetail(updatedAd);
+            return this.Request.CreateResponse(HttpStatusCode.NoContent);
         }
 
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
             var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
             adverts.Remove(targetAd);
+
+            return this.Request.CreateResponse(HttpStatusCode.NoContent);
         }
     }
 }
