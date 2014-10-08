@@ -49,5 +49,11 @@ namespace CarTraderService.Controllers
             var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
             targetAd.CopyDetail(updatedAd);
         }
+
+        public void Delete(int id)
+        {
+            var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
+            adverts.Remove(targetAd);
+        }
     }
 }
