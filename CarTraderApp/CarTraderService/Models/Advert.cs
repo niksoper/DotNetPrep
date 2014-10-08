@@ -40,5 +40,18 @@ namespace CarTraderService.Models
         /// </summary>
         public string ContactNumber { get; set; }
 
+        /// <summary>
+        /// Copies the details from another advert to this advert
+        /// </summary>
+        /// <param name="adDetails">The details to copy to this advert</param>
+        public void CopyDetail(Advert adDetails)
+        {
+            this.Make = adDetails.Make;
+            this.Model = adDetails.Model;
+            this.AskingPrice = adDetails.AskingPrice;
+            this.Description = adDetails.Description;
+            this.ContactNumber = adDetails.ContactNumber;
+        }
+
     }
 }

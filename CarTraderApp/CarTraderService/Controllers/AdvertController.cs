@@ -43,5 +43,11 @@ namespace CarTraderService.Controllers
             ad.Id = nextAdId;
             adverts.Add(ad);
         }
+
+        public void Put(int id, [FromBody]Advert updatedAd)
+        {
+            var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
+            targetAd.CopyDetail(updatedAd);
+        }
     }
 }
