@@ -1,0 +1,19 @@
+﻿<div class="container">
+    <div class="input-group">
+        <span class="input-group-addon">Asking price £</span>
+        <input type="text" class="form-control" placeholder="Asking price" ng-model="ad.AskingPrice" />
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">Make</span>
+        <input type="text" class="form-control" placeholder="Make" ng-model="ad.Make" />
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">Model</span>
+        <input type="text" class="form-control" placeholder="Model" ng-model="ad.Model" />
+    </div>
+    <div class="input-group">
+        <textarea rows="6" cols="80" class="form-control" placeholder="Make it sound good!" ng-model="ad.Description"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-default" ng-click="createAd(ad)">Create my advert</button>
+</div>

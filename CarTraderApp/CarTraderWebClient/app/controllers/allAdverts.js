@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var allAdverts = function ($scope, $http) {
+    function allAdverts($scope, $http) {
 
         $http.get('http://localhost:51550/api/advert').then(function (response) {
 
