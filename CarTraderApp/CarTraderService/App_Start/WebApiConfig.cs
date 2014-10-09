@@ -1,8 +1,8 @@
-﻿using CarTraderService.Filters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace CarTraderService
 {
@@ -10,7 +10,7 @@ namespace CarTraderService
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Filters.Add(new AllowCrossSiteJsonAttribute("*"));
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
