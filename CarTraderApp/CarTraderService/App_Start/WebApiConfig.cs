@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarTraderService.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -9,6 +10,8 @@ namespace CarTraderService
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Filters.Add(new AllowCrossSiteJsonAttribute());
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

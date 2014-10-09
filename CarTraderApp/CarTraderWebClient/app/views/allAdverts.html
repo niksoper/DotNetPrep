@@ -1,1 +1,9 @@
-﻿<h3>All adverts!!!</h3>
+﻿<div class="container">
+
+
+    <div class="col-md-3" ng-repeat="ad in adverts">
+        <h4>{{ad.Make}} {{ad.Model}} {{ad.AskingPrice | currency:'£'}}</h4>
+        <p>{{ad.Description}}</p>
+        <p>Tel: {{ad.ContactNumber}}</p>
+    </div>
+</div>
