@@ -22,6 +22,8 @@ namespace CarTraderService.Controllers
                 new Advert { Id = 3, Make = "Alan", Model = "Horse", AskingPrice = 10, ContactNumber = "07716829674", Description = "Simply a bargain" }
             };
 
+            ads.ForEach(ad => ad.CreatedTime = DateTime.Now);
+
             nextAdId = ads.Count + 1;
 
             return ads;

@@ -41,6 +41,11 @@ namespace CarTraderService.Models
         public string ContactNumber { get; set; }
 
         /// <summary>
+        /// Gets or sets the date and time that the advert was created
+        /// </summary>
+        public DateTime CreatedTime { get; set; }
+
+        /// <summary>
         /// Copies the details from another advert to this advert
         /// </summary>
         /// <param name="adDetails">The details to copy to this advert</param>
@@ -51,6 +56,7 @@ namespace CarTraderService.Models
             this.AskingPrice = adDetails.AskingPrice;
             this.Description = adDetails.Description;
             this.ContactNumber = adDetails.ContactNumber;
+            this.CreatedTime = adDetails.CreatedTime;
         }
 
     }
