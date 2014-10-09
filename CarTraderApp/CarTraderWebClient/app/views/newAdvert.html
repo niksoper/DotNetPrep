@@ -1,19 +1,26 @@
 ﻿<div class="container">
-    <div class="input-group">
-        <span class="input-group-addon">Asking price £</span>
-        <input type="text" class="form-control" placeholder="Asking price" ng-model="ad.AskingPrice" />
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon">Make</span>
-        <input type="text" class="form-control" placeholder="Make" ng-model="ad.Make" />
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon">Model</span>
-        <input type="text" class="form-control" placeholder="Model" ng-model="ad.Model" />
-    </div>
-    <div class="input-group">
-        <textarea rows="6" cols="80" class="form-control" placeholder="Make it sound good!" ng-model="ad.Description"></textarea>
-    </div>
+    <form name="newAdForm" class="css-form">
+        <div class="input-group">
+            <span class="input-group-addon">Asking price £</span>
+            <input type="text" class="form-control" placeholder="Asking price" ng-model="ad.AskingPrice" required />
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Make</span>
+            <input type="text" class="form-control" placeholder="Make" ng-model="ad.Make" required />
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Model</span>
+            <input type="text" class="form-control" placeholder="Model" ng-model="ad.Model" required />
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Phone</span>
+            <input type="text" class="form-control" placeholder="Phone" ng-model="ad.ContactNumber" required />
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Description</span>
+            <textarea rows="6" cols="80" class="form-control" placeholder="Make it sound good!" ng-model="ad.Description" required></textarea>
+        </div>
 
-    <button type="button" class="btn btn-default" ng-click="createAd(ad)">Create my advert</button>
+        <button type="submit" class="btn btn-default" ng-click="createAd(ad)" ng-disabled="newAdForm.$invalid">Create my advert</button>
+    </form>
 </div>
