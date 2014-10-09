@@ -1,4 +1,4 @@
-﻿using CarTraderService.Models;
+﻿using CarTraderModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
