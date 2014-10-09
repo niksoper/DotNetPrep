@@ -8,6 +8,18 @@
 
         });
 
+        $scope.removeAdvert = function (id) {
+
+            $http.delete('http://localhost:51550/api/advert/' + id).then(function (response) {
+
+                $scope.adverts = $scope.adverts.filter(function (ad) {
+                    return ad.Id !== id;
+                });
+
+            });
+
+        };
+
     }
 
     var carTraderControllers = angular

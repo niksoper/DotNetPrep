@@ -3,5 +3,6 @@
         <h4>{{ad.Make}} {{ad.Model}} {{ad.AskingPrice | currency:'£'}}</h4>
         <p><em>{{ad.Description}}</em></p>
         <p>Tel: {{ad.ContactNumber}}</p>
+        <a class="btn-link" href="#" ng-click="removeAdvert(ad.Id)">Delete</a>
     </div>
 </div>
