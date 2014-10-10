@@ -1,4 +1,6 @@
-﻿using CarTraderModel;
+﻿using CarTrader.AbstractServices;
+using CarTrader.FakeServices;
+using CarTraderModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,33 +13,24 @@ namespace CarTraderService.Controllers
 {
     public class AdvertController : ApiController
     {
-        private static int nextAdId;
-        private static List<Advert> adverts = StartingAds();
+        private readonly IAdvertRepository adverts;
 
-        private static List<Advert> StartingAds()
+        /// <summary>
+        /// Initialises a new instance of the <see cref="AdvertController"/> class
+        /// </summary>
+        public AdvertController()
         {
-            var ads = new List<Advert>
-            {
-                new Advert { Id = 1, Make = "Ford", Model = "Fiesta", AskingPrice = 2095, ContactNumber = "01225 456123", Description = "A lovely drive, honest." },
-                new Advert { Id = 2, Make = "Mini", Model = "Cooper", AskingPrice = 5000, ContactNumber = "07713715462", Description = "Horrible. Stay away!" },
-                new Advert { Id = 3, Make = "Alan", Model = "Horse", AskingPrice = 10, ContactNumber = "07716829674", Description = "Simply a bargain" }
-            };
-
-            ads.ForEach(ad => ad.CreatedTime = DateTime.Now);
-
-            nextAdId = ads.Count + 1;
-
-            return ads;
+            this.adverts = new InMemoryAdvertRepository();
         }
 
         public IEnumerable<Advert> Get()
         {
-            return adverts;
+            return this.adverts.GetAllAdverts();
         }
 
         public HttpResponseMessage Get(int id)
         {
-            var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
+            var targetAd = this.adverts.GetAdvert(id);
 
             return (targetAd == null)
                 ? this.Request.CreateErrorResponse(HttpStatusCode.NotFound, string.Format("No advert found with id: {0}.", id))
@@ -51,9 +44,7 @@ namespace CarTraderService.Controllers
                 return this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No advert data was submitted.");
             }
 
-            nextAdId++;
-            ad.Id = nextAdId;
-            adverts.Add(ad);
+            this.adverts.AddAdvert(ad);
 
             var response = this.Request.CreateResponse(HttpStatusCode.Created);
             response.Headers.Location = new Uri(this.Request.RequestUri + ad.Id.ToString());
@@ -61,23 +52,21 @@ namespace CarTraderService.Controllers
             return response;
         }
 
-        public HttpResponseMessage Put(int id, [FromBody]Advert updatedAd)
+        public HttpResponseMessage Put(int id, [FromBody]Advert ad)
         {
-            var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
+            bool updated = this.adverts.UpdateAdvert(id, ad);
 
-            if (targetAd == null)
+            if (!updated)
             {
                 return this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, string.Format("No advert found with id: {0}.", id));
             }
 
-            targetAd.CopyDetail(updatedAd);
             return this.Request.CreateResponse(HttpStatusCode.NoContent);
         }
 
         public HttpResponseMessage Delete(int id)
         {
-            var targetAd = adverts.FirstOrDefault(ad => ad.Id == id);
-            adverts.Remove(targetAd);
+            this.adverts.DeleteAdvert(id);
 
             return this.Request.CreateResponse(HttpStatusCode.NoContent);
         }

@@ -239,6 +239,14 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CarTrader.AbstractServices\CarTrader.AbstractServices.csproj">
+      <Project>{72adf5af-f104-48f5-b5ec-2a01e37b3fd8}</Project>
+      <Name>CarTrader.AbstractServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarTrader.FakeServices\CarTrader.FakeServices.csproj">
+      <Project>{e14b644a-59f1-4d0f-b6c9-22b2f296b7b9}</Project>
+      <Name>CarTrader.FakeServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarTraderModel\CarTraderModel.csproj">
       <Project>{0f926430-ae5c-4683-978b-a5b4af6cbb61}</Project>
       <Name>CarTraderModel</Name>
