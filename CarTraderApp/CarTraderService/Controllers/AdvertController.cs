@@ -13,14 +13,30 @@ namespace CarTraderService.Controllers
 {
     public class AdvertController : ApiController
     {
+        /// <summary>
+        /// Contains all adverts
+        /// </summary>
         private readonly IAdvertRepository adverts;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="AdvertController"/> class
         /// </summary>
-        public AdvertController()
+        public AdvertController() : this(new InMemoryAdvertRepository())
         {
-            this.adverts = new InMemoryAdvertRepository();
+        }
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="AdvertController"/> class
+        /// </summary>
+        /// <param name="advertRepository">The repository that contains all adverts.</param>
+        public AdvertController(IAdvertRepository advertRepository)
+        {
+            if (advertRepository == null)
+            {
+                throw new ArgumentNullException("advertRepository");
+            }
+
+            this.adverts = advertRepository;
         }
 
         public IEnumerable<Advert> Get()
