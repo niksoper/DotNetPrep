@@ -147,6 +147,8 @@
     <Content Include="app\controllers\allAdverts.js" />
     <Content Include="app\controllers\newAdvert.js" />
     <Content Include="app\controllers\_controllers.js" />
+    <Content Include="app\directives\confirmClick.js" />
+    <Content Include="app\directives\_directives.js" />
     <Content Include="app\views\allAdverts.html" />
     <Content Include="app\views\newAdvert.html" />
     <Content Include="Content\bootstrap-theme.css" />

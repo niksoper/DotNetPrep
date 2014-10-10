@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var carTraderApp = angular.module('carTraderApp', ['ngRoute', 'carTraderControllers'])
+    var carTraderApp = angular.module('carTraderApp', ['ngRoute', 'carTraderControllers', 'carTraderDirectives'])
         .config(['$routeProvider', function($routeProvider) {
             $routeProvider.when('/ads', {
                 templateUrl: 'app/views/allAdverts.html',

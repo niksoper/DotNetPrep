@@ -3,6 +3,6 @@
         <h4>{{ad.Make}} {{ad.Model}} {{ad.AskingPrice | currency:'£'}}</h4>
         <p><em>{{ad.Description}}</em></p>
         <p>Tel: {{ad.ContactNumber}}</p>
-        <button class="btn btn-link" ng-click="removeAdvert(ad.Id)">Delete</button>
+        <button class="btn btn-link" ng-click="removeAdvert(ad.Id)" ng-confirm-click="Are you sure you want to stop advertising this {{ad.Make}} {{ad.Model}}?">Delete</button>
     </div>
 </div>
