@@ -19,12 +19,8 @@ namespace CarTraderService.UnitTests.Controllers
     {
         [Theory]
         [PropertyData("Get_TestAdverts")]
-        public void Get_ReturnsExpectedAdverts(IEnumerable<Advert> expectedAds, Mock<IAdvertRepository> adRepoMock)
+        public void Get_ReturnsExpectedAdverts(IEnumerable<Advert> expectedAds, AdvertController sut)
         {
-            // Arrange
-            // I've run into issues using AutoFixture to create this object reverted to manually creating it for now...
-            var sut = new AdvertController(adRepoMock.Object);
-
             // Act
             var result = sut.Get();
 
@@ -42,10 +38,13 @@ namespace CarTraderService.UnitTests.Controllers
                 IFixture fixture = new Helpers.AutoMoqFixture();
                 var adRepoMock = fixture.Freeze<Mock<IAdvertRepository>>();
 
+                // I've run into issues using AutoFixture to create this object reverted to manually creating it for now...
+                var sut = new AdvertController(adRepoMock.Object);
+
                 List<object[]> testParameters = new List<object[]>
                 {
-                    new object[] { new List<Advert>(), adRepoMock },
-                    new object[] { fixture.Create<IEnumerable<Advert>>(), adRepoMock }
+                    new object[] { new List<Advert>(), sut },
+                    new object[] { fixture.Create<IEnumerable<Advert>>(), sut }
                 };
 
                 var sequence = adRepoMock.SetupSequence(x => x.GetAllAdverts());
