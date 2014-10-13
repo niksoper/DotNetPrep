@@ -13,6 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTrader.AbstractServices"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTrader.FakeServices", "CarTrader.FakeServices\CarTrader.FakeServices.csproj", "{E14B644A-59F1-4D0F-B6C9-22B2F296B7B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTraderService.UnitTests", "CarTraderService.UnitTests\CarTraderService.UnitTests.csproj", "{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0B7B8600-8E01-4B5F-AACF-626C27FD797B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +46,10 @@ Global
 		{E14B644A-59F1-4D0F-B6C9-22B2F296B7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E14B644A-59F1-4D0F-B6C9-22B2F296B7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E14B644A-59F1-4D0F-B6C9-22B2F296B7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
