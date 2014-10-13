@@ -15,7 +15,7 @@ using Xunit.Extensions;
 
 namespace CarTraderService.UnitTests.Controllers
 {
-    public class AdvertControllerTests
+    public class AdvertController_Get
     {
         [Theory]
         [PropertyData("Get_TestAdverts")]

@@ -81,7 +81,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Controllers\AdvertControllerTests.cs" />
+    <Compile Include="Controllers\AdvertController_Get.cs" />
     <Compile Include="Helpers\AutoMoqFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
