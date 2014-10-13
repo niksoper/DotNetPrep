@@ -82,7 +82,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\AdvertController_Get.cs" />
+    <Compile Include="Helpers\ApiControllerConventions.cs" />
+    <Compile Include="Helpers\ApiControllerCustomization.cs" />
     <Compile Include="Helpers\AutoMoqFixture.cs" />
+    <Compile Include="Helpers\HttpRequestMessageCustomization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

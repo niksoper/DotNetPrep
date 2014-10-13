@@ -39,11 +39,9 @@ namespace CarTraderService.UnitTests.Controllers
         {
             get
             {
-                IFixture fixture = new Helpers.AutoMoqFixture();
+                IFixture fixture = new Fixture().Customize(new Helpers.ApiControllerConventions());
                 var adRepoMock = fixture.Freeze<Mock<IAdvertRepository>>();
-
-                // I've run into issues using AutoFixture to create this object reverted to manually creating it for now...
-                var sut = new AdvertController(adRepoMock.Object);
+                var sut = fixture.Create<AdvertController>();
 
                 List<object[]> testParameters = new List<object[]>
                 {
@@ -124,15 +122,9 @@ namespace CarTraderService.UnitTests.Controllers
                 this.fixture = new Fixture().Customize(new Helpers.ApiControllerConventions());
                 var adRepoMock = fixture.Freeze<Mock<IAdvertRepository>>();
 
-                int id = 1;
+                int id = this.fixture.Create<int>();
                 Advert expectedAd = this.ExpectedAdvert();
-
-                // I've run into issues using AutoFixture to create this object reverted to manually creating it for now...
-                var sut = new AdvertController(adRepoMock.Object) 
-                { 
-                    Request = new HttpRequestMessage(), 
-                    Configuration = new HttpConfiguration() 
-                };
+                var sut = fixture.Create<AdvertController>();
 
                 this.testParameters = new object[] { id, expectedAd, sut };
 

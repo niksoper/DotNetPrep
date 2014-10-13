@@ -21,7 +21,8 @@ namespace CarTraderService.Controllers
         /// <summary>
         /// Initialises a new instance of the <see cref="AdvertController"/> class
         /// </summary>
-        public AdvertController() : this(new InMemoryAdvertRepository())
+        public AdvertController()
+            : this(new InMemoryAdvertRepository())
         {
         }
 
