@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0B7B86
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTrader.EntityFramework", "CarTrader.EntityFramework\CarTrader.EntityFramework.csproj", "{E282A522-AE11-49CA-A5AB-1119C3630CDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52DF65DE-5ED1-4D70-9104-31273ABFEB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E282A522-AE11-49CA-A5AB-1119C3630CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E282A522-AE11-49CA-A5AB-1119C3630CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E282A522-AE11-49CA-A5AB-1119C3630CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E282A522-AE11-49CA-A5AB-1119C3630CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

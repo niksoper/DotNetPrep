@@ -20,6 +20,8 @@ namespace CarTraderService
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            
         }
     }
 }

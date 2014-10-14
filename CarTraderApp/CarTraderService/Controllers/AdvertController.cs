@@ -1,4 +1,5 @@
 ﻿using CarTrader.AbstractServices;
+using CarTrader.EntityFramework.Services;
 using CarTrader.FakeServices;
 using CarTraderModel;
 using System;
@@ -22,7 +23,7 @@ namespace CarTraderService.Controllers
         /// Initialises a new instance of the <see cref="AdvertController"/> class
         /// </summary>
         public AdvertController()
-            : this(new InMemoryAdvertRepository())
+            : this(new EntityFrameworkAdvertRepository())
         {
         }
 
